@@ -3,17 +3,32 @@
 This module defines the API for the mbed low-level Hardware Abstraction Layer,
 which is implemented by target-specific modules.
 
+**mbed hal API is considered an internal interface. It is not recommended to depend on this module in an application.**
+We are planning to improve mbed-hal in the future, which might require changes in API.
+
 ### Installation
 ```
 yotta install --save ARMmbed/mbed-hal
 ```
 
-### Usage
-TBC
-
-
 ### API
-TBC
+The mbed HAL defines API for the following peripherals/functionality:
+- Analog in
+- Analog out
+- Buffer
+- GPIO
+- GPIO IRQ
+- Low power timer
+- Ticker - high precision timer
+- I2C
+- Init HAL
+- Port
+- Pin maping
+- PWM out
+- RTC
+- Serial
+- Sleep
+- SPI
 
 ### Porting
 mbed-hal requires a number of sub-modules when a port is created.
@@ -99,6 +114,8 @@ Contains: chip-specific definitions and code
 Dependencies: None required
 
 Target Dependencies: None required
+
+This module should define chip pin names. More information about pin names in mbed OS [here](pins.md).
 
 #### mbed-hal-\<vendor\>-\<target\>
 The target-specific definitions expected by the vendor HAL and/or mbed-hal-\<vendor\>-\<chip family\>
